@@ -15,7 +15,7 @@ app.get(/(.+)/, (req, res) => {
   // First regex match
   const url = req.params[0]; // "/proxy/:regex0" proxy ke baad jo bhi aayega wo first regex match me shamil hoga
 
-  res.send(url);
+  res.send(url + req.query);
   return;
   
   // agar "referer" header hoga to sayad uski value wo URL hi hogi jis par request ki hai
