@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => res.send("/url"));
 
-app.get(/(.+), (req, res) => {
+app.get(/\/(.+)/, (req, res) => {
   const headers = req.headers;
   
   // "host" header ko delete kar rahe hai taaki domain not match ka error na aaye
