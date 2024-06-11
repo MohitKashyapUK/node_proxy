@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => res.send("/url"));
 
-app.get(/(.+)/, (req, res) => {
+app.get(/(.+), (req, res) => {
   const headers = req.headers;
   
   // "host" header ko delete kar rahe hai taaki domain not match ka error na aaye
@@ -15,7 +15,7 @@ app.get(/(.+)/, (req, res) => {
   // First regex match
   const url = req.params[0]; // "/proxy/:regex0" proxy ke baad jo bhi aayega wo first regex match me shamil hoga
 
-  res.send(url + req.query);
+  res.json(req.params);
   return;
   
   // agar "referer" header hoga to sayad uski value wo URL hi hogi jis par request ki hai
